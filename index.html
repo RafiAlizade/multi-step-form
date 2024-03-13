@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="step_text">
-                            <span>STEP1</span>
+                            <span>STEP 1</span>
                             <span>YOUR INFO</span>
                         </div>
                     </div>
@@ -30,8 +30,8 @@
                         </div>
 
                         <div class="step_text">
-                            <span>STEP1</span>
-                            <span>YOUR INFO</span>
+                            <span>STEP 2</span>
+                            <span>SELECT PLAN</span>
                         </div>
                     </div>
                     <div class="step_number_3">
@@ -40,8 +40,8 @@
                         </div>
 
                         <div class="step_text">
-                            <span>STEP1</span>
-                            <span>YOUR INFO</span>
+                            <span>STEP 3</span>
+                            <span>ADD-ONS</span>
                         </div>
                     </div>
                     <div class="step_number_4">
@@ -50,47 +50,65 @@
                         </div>
 
                         <div class="step_text">
-                            <span>STEP1</span>
-                            <span>YOUR INFO</span>
+                            <span>STEP 4</span>
+                            <span>SUMMARY</span>
                         </div>
                     </div>
                 </div>
             </aside>
 
-            <div class="step d-none">
+            <div class="step step_number_1">
                 <form action="#" class="step1_form">
-                    <div class="step1__texts">
-                        <h3 class="step1_h3">
+                    <div class="step__texts">
+                        <h3 class="step_h3">
                             Personal info
                         </h3>
 
-                        <span class="step1_span">
+                        <span class="step_span">
                             Please provide your name, email address, and phone number.
                         </span>
                     </div>
 
                     <label for="userName">
-                        <span class="label_span">
-                            Name
-                        </span>
+                        <div class="label_box">
+                            <span class="label_span username_span">
+                                Name
+                            </span>
 
-                        <input type="text" name="userName" placeholder="e.g. Stephen King">
+                            <span class="label_warn username_warn">
+                                
+                            </span>
+                        </div>
+
+                        <input type="text" name="userName" placeholder="e.g. Stephen King" class="username_input">
                     </label>
 
                     <label for="emailAddress">
-                        <span class="label_span">
-                            Email Address
-                        </span>
+                        <div class="label_box">
+                            <span class="label_span email_span">
+                                Email Address
+                            </span>
 
-                        <input type="email" name="emailAddress" placeholder="e.g. stephenking@lorem.com">
+                            <span class="label_warn email_warn">
+
+                            </span>
+                        </div>
+
+                        <input type="text" name="emailAddress" placeholder="e.g. stephenking@lorem.com" class="email_input">
                     </label>
 
                     <label for="phoneNumber">
-                        <span class="label_span">
-                            Phone Number
-                        </span>
+                        <div class="label_box">
+                            <span class="label_span phone_span">
+                                Phone Number
+                            </span>
 
-                        <input type="tel" name="phoneNumber" placeholder="e.g. +1 234 567 890">
+                            <span class="label_warn phone_warn">
+                                
+                            </span>
+                        </div>
+
+                        <input type="text" name="phoneNumber" placeholder="+994 55 123 45 67" class="number_input">
                     </label>
 
                     <div class="next_step-btn">
@@ -101,7 +119,7 @@
 
             <!-- ! STEP 2 -->
 
-            <div class="step d-none">
+            <div class="step step_number_2 d-none">
                 <div class="step_container">
                     <div class="step__texts">
                         <h3 class="step_h3">
@@ -123,8 +141,8 @@
                                 <span class="plan__card_name">Arcade</span>
                                 <div class="plan__card_plan">
                                     $
-                                    <span class="plan__card_price">15</span>
-                                    mo
+                                    <span class="plan__card_price">9</span>
+                                    /mo
                                 </div>
                             </div>
                         </div>
@@ -138,8 +156,8 @@
                                 <span class="plan__card_name">Advanced</span>
                                 <div class="plan__card_plan">
                                     $
-                                    <span class="plan__card_price">15</span>
-                                    mo
+                                    <span class="plan__card_price">12</span>
+                                    /mo
                                 </div>
                             </div>
                         </div>
@@ -154,7 +172,7 @@
                                 <div class="plan__card_plan">
                                     $
                                     <span class="plan__card_price">15</span>
-                                    mo
+                                    /mo
                                 </div>
                             </div>
                         </div>
@@ -175,15 +193,15 @@
                     </div>
 
                     <div class="next_step2-btn">
-                        <a href="#" class="next_step2-href">Go Back</a>
-                        <button>Next Step</button>
+                        <a href="#" class="next_step2-href step2_goback">Go Back</a>
+                        <button class="next_btn_step2">Next Step</button>
                     </div>
                 </div>
             </div>
 
             <!-- ! STEP 3 -->
 
-            <div class="step d-none">
+            <div class="step step_number_3 d-none">
                 <div class="step_container">
                     <div class="step__texts">
                         <h3 class="step_h3">
@@ -249,7 +267,7 @@
             <!-- ! STEP 4 -->
 
 
-            <div class="step d-none">
+            <div class="step step_number_4 d-none">
                 <div class="step_container">
                     <div class="step__texts">
                         <h3 class="step_h3">
@@ -322,7 +340,7 @@
 
             <!-- ! STEP 5 -->
 
-            <div class="step">
+            <div class="step step_number_5 d-none">
                 <div class="step_container">
                     <div class="message_box">
                         <div class="message_box_top">
@@ -345,6 +363,8 @@
 
 
     </main>
+
+    <script src="./assets/js/app.js"></script>
 </body>
 
 </html>

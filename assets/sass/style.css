@@ -137,6 +137,10 @@ main {
   outline: 1px solid rgb(221, 221, 221);
 }
 
+.label_warn {
+  font-family: ubuntu-regular;
+}
+
 .step_container {
   padding-top: 3rem;
   width: 70%;
@@ -170,6 +174,13 @@ main {
   line-height: 1.56rem;
   letter-spacing: 0rem;
   text-align: left;
+}
+
+.label_box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .label_span {
@@ -221,6 +232,7 @@ main {
   border-radius: 0.5rem;
   background: rgb(255, 255, 255);
   padding: 1.3rem 0rem 1rem 1rem;
+  cursor: pointer;
 }
 
 .plan__card_text {
@@ -269,21 +281,23 @@ main {
 }
 
 .plan__card_select_toggle {
+  width: 2.5rem;
   height: 1.25rem;
   display: flex;
   flex-direction: row;
   justify-content: start;
-  width: 10%;
   padding: 0.2rem 0.2rem 0.2rem 0.2rem;
   border-radius: 0.63rem;
   background: rgb(2, 41, 89);
+  cursor: pointer;
 }
 
 .select_toggle_circle {
   background-color: #fff;
-  height: 100%;
-  width: 30%;
+  height: 0.95rem;
+  width: 0.95rem;
   border-radius: 50%;
+  transition: ease-in-out 0.3s;
 }
 
 .next_step2-btn {
@@ -554,4 +568,9 @@ hr {
 
 .selected-plan {
   color: rgb(2, 41, 89);
+}
+
+.card-selected {
+  background-color: hsl(217, 100%, 97%);
+  border-color: hsl(228, 100%, 84%);
 }/*# sourceMappingURL=style.css.map */
