@@ -1,0 +1,537 @@
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    padding: 1rem;
+    width: 60%;
+    height: 70%;
+    border-radius: 0.94rem;
+    box-shadow: 0rem 1.56rem 2.5rem -1.25rem rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.form-aside {
+    height: 100%;
+    width: 30%;
+    background: url("./../images/bg-sidebar-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.63rem;
+}
+
+.steps {
+    padding-left: 1.4rem;
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+    font-family: ubuntu-bold;
+}
+
+.step_number_1,
+.step_number_2,
+.step_number_3,
+.step_number_4 {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+
+    > .step_number {
+        padding: 0.8rem 1.1rem;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 0.06rem solid rgb(255, 255, 255);
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+    }
+
+    > .step_text {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 0.3rem;
+
+        > span:nth-child(1) {
+            color: rgba(171, 188, 255, 1);
+        }
+
+        > span:nth-child(2) {
+            color: rgba(255, 255, 255, 1);
+        }
+    }
+}
+
+.step {
+    width: 70%;
+    background: rgb(255, 255, 255);
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.step1_form {
+    padding-top: 3rem;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2.5rem;
+
+    > label {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 0.5rem;
+
+        > input {
+            padding: 0.7rem 0rem 0.7rem 1rem;
+            width: 100%;
+            border: 0.06rem solid rgb(214, 217, 230);
+            border-radius: 0.5rem;
+            background: rgb(255, 255, 255);
+            border: none;
+            outline: 1px solid rgb(221, 221, 221);
+        }
+    }
+}
+
+.step_container {
+    padding-top: 3rem;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2.5rem;
+}
+
+.step__texts {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.8rem;
+}
+
+.step_h3 {
+    color: rgb(2, 41, 89);
+    font-family: ubuntu-bold;
+    font-size: 3rem;
+    line-height: 2.31rem;
+    letter-spacing: 0rem;
+    text-align: left;
+}
+
+.step_span {
+    color: rgb(150, 153, 170);
+    font-family: ubuntu-medium;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.56rem;
+    letter-spacing: 0rem;
+    text-align: left;
+}
+
+.label_span {
+    color: rgb(2, 41, 89);
+    font-family: Ubuntu-medium;
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1rem;
+    letter-spacing: 0rem;
+    text-align: left;
+}
+
+.next_step-btn {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    font-family: ubuntu-regular;
+
+    > button {
+        border-radius: 0.5rem;
+        background: rgb(2, 41, 89);
+        color: rgb(255, 255, 255);
+        font-family: ubuntu-regular;
+        font-size: 1rem;
+        line-height: 1.13rem;
+        letter-spacing: 0rem;
+        text-align: left;
+        padding: 0.8rem 1.5rem;
+        border: none;
+    }
+}
+
+.next_step2-btn {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    font-family: ubuntu-regular;
+}
+
+.plan__card_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.plan__card_box {
+    width: 30%;
+    border: 0.06rem solid rgb(214, 217, 230);
+    border-radius: 0.5rem;
+    background: rgb(255, 255, 255);
+    padding: 1.3rem 0rem 1rem 1rem;
+}
+
+.plan__card_text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+}
+
+.plan__card_name {
+    color: rgb(2, 41, 89);
+    font-family: Ubuntu-medium;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.13rem;
+    letter-spacing: 0rem;
+    text-align: left;
+}
+
+.plan__card_plan {
+    color: rgb(150, 153, 170);
+    font-family: Ubuntu-regular;
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1rem;
+    letter-spacing: 0rem;
+    text-align: left;
+}
+
+.plan__card_select {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+    color: rgb(150, 153, 170);
+    font-family: Ubuntu-medium;
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1rem;
+    letter-spacing: 0rem;
+    text-align: right;
+    align-items: center;
+}
+
+.plan__card_select_toggle {
+    height: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 10%;
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+    border-radius: 0.63rem;
+    background: rgb(2, 41, 89);
+}
+
+.select_toggle_circle {
+    background-color: #fff;
+    height: 100%;
+    width: 30%;
+    border-radius: 50%;
+}
+
+.next_step2-btn {
+    margin-top: 6rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: ubuntu-regular;
+
+    > .next_step2-href {
+        text-decoration: none;
+        font-family: ubuntu-regular;
+        font-size: 1rem;
+        line-height: 1.13rem;
+        letter-spacing: 0rem;
+        text-align: left;
+        padding: 0.8rem 1.5rem;
+        border: none;
+    }
+
+    > button {
+        border-radius: 0.5rem;
+        background: rgb(2, 41, 89);
+        color: rgb(255, 255, 255);
+        font-family: ubuntu-regular;
+        font-size: 1rem;
+        line-height: 1.13rem;
+        letter-spacing: 0rem;
+        text-align: left;
+        padding: 0.8rem 1.5rem;
+        border: none;
+    }
+}
+
+.addons_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.addons_box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 1.5rem 1.1rem 1.5rem;
+    border: 0.06rem solid rgb(214, 217, 230);
+    border-radius: 0.5rem;
+    background: rgb(255, 255, 255);
+}
+
+.addons_box_left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.addons_box_left_texts {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+}
+
+.left_texts_h5 {
+    color: rgb(2, 41, 89);
+    font-family: Ubuntu-medium;
+    font-size: 1rem;
+    line-height: 1.13rem;
+    letter-spacing: 0rem;
+    text-align: left;
+}
+
+.addons_box_right {
+    color: rgb(72, 62, 255);
+    font-family: Ubuntu-medium;
+    font-size: 0.88rem;
+    line-height: 1.25rem;
+    letter-spacing: 0rem;
+    text-align: right;
+}
+
+.left_texts_desc {
+    color: rgb(150, 153, 170);
+    font-family: Ubuntu-regular;
+    font-size: 0.88rem;
+    line-height: 1.25rem;
+    letter-spacing: 0rem;
+    text-align: left;
+}
+
+.total_container {
+    width: 100%;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.3rem;
+}
+
+.total_top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total_top_left {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+}
+
+.total_top_change {
+    color: rgb(150, 153, 170);
+    font-family: Ubuntu-regular;
+    font-size: 0.88rem;
+    line-height: 1.25rem;
+    letter-spacing: 0rem;
+    text-align: left;
+    text-decoration-line: underline;
+}
+
+.total_top_right {
+    color: rgb(2, 41, 89);
+    font-family: Ubuntu-bold;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: 0rem;
+    text-align: right;
+    font-size: 1.2rem;
+}
+
+.total_top_text {
+    color: rgb(2, 41, 89);
+    font-family: Ubuntu-medium;
+    font-size: 1rem;
+    line-height: 1.13rem;
+    letter-spacing: 0rem;
+    text-align: left;
+}
+
+.total_bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 3rem;
+}
+
+.total_bottom_top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.bottom_top_total {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottom_top_total_name {
+    color: rgb(150, 153, 170);
+    font-family: Ubuntu-medium;
+    font-size: 0.88rem;
+    line-height: 1.25rem;
+    letter-spacing: 0rem;
+    text-align: left;
+}
+
+.bottom_top_total_price {
+    color: rgb(2, 41, 89);
+    font-family: Ubuntu-medium;
+    font-size: 0.88rem;
+    line-height: 1.25rem;
+    letter-spacing: 0rem;
+    text-align: right;
+}
+
+.total_bottom_price {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom_price_per {
+    color: rgb(150, 153, 170);
+    font-family: Ubuntu-medium;
+    font-size: 0.88rem;
+    line-height: 1.25rem;
+    letter-spacing: 0rem;
+    text-align: left;
+}
+
+.bottom_price_total {
+    color: rgb(72, 62, 255);
+    font-family: Ubuntu-bold;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    letter-spacing: 0rem;
+    text-align: right;
+}
+
+// ! STEP 5
+
+.message_box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    height: 100%;
+}
+
+.message_box_bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.box_bottom_h5 {
+    color: rgb(2, 41, 89);
+    font-family: Ubuntu-bold;
+    font-size: 2rem;
+    line-height: 2.31rem;
+    letter-spacing: 0rem;
+    text-align: center;
+}
+
+.box_bottom_par {
+    color: rgb(150, 153, 170);
+    font-family: Ubuntu-medium;
+    font-size: 1rem;
+    line-height: 1.56rem;
+    letter-spacing: 0rem;
+    text-align: center;
+}
+
+// ! Spec selections
+
+hr {
+    width: 100%;
+    border-bottom: 1px solid rgb(150, 153, 170);
+    opacity: 0.2;
+}
+
+.d-none {
+    display: none;
+}
+
+.selected {
+    background: rgb(190, 226, 253);
+    border: none;
+
+    > span {
+        color: rgb(2, 41, 89);
+    }
+}
+
+.selected-plan {
+    color: rgb(2, 41, 89);
+}
