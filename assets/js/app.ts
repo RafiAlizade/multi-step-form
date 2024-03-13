@@ -33,6 +33,34 @@ let selectplantype = document.querySelector('.plan__card_select_toggle') as HTML
 let selectMonthly = document.querySelector('.plan__card_select_monthly') as HTMLSpanElement;
 let selectYearly = document.querySelector('.plan__card_select_yearly') as HTMLSpanElement;
 let planPrice = document.querySelectorAll('.plan__card_price');
+let nextButton_step2 = document.querySelector('.next_btn_step2') as HTMLButtonElement;
+let backButton_step2 = document.querySelector('.step2_goback') as HTMLAnchorElement;
+let nextBtn_warn = document.querySelector('.next_step2_warn') as HTMLSpanElement;
+let selectplanName = document.querySelector('.selected_plan_name');
+
+// ! STEP 3 SELECTS
+
+let checkboxs = document.querySelectorAll('.checkbox_addons_box');
+let nextButton_step3 = document.querySelector('.next_btn_step3') as HTMLButtonElement;
+let backButton_step3 = document.querySelector('.next_step3-href') as HTMLAnchorElement;
+
+// ! STEP 4 SELECTS 
+
+let nextButton_step4 = document.querySelector('.next_btn_step4') as HTMLButtonElement;
+let backButton_step4 = document.querySelector('.next_step4-href') as HTMLAnchorElement;
+let step4_price = document.querySelector('.bottom_price_per') as HTMLSpanElement;
+let step4_total = document.querySelector('.bottom_price_total') as HTMLSpanElement;
+let step4_totaltext = document.querySelector('.total_top_text') as HTMLSpanElement;
+let step4_body_total = document.querySelector('.monthly_text_body') as HTMLSpanElement;
+let step4_top_price = document.querySelector('.top_right_price') as HTMLSpanElement;
+let step4_perdate = document.querySelector('.bottom_price_per_date') as HTMLSpanElement;
+let step4_totalbottom_top = document.querySelector('.total_bottom_top') as HTMLDivElement;
+
+
+let totalPlanPrice: number = 0;
+let planName:string = '';
+let selectedPlansArray: any = [];
+let monthlyText = document.querySelectorAll('.monthly_text');
 
 function validatePhoneNumber(inputValue: string): boolean {
     const regex = /^\+994\d{9}$/;
@@ -40,10 +68,10 @@ function validatePhoneNumber(inputValue: string): boolean {
 }
 
 
-step1_form?.addEventListener('submit', function(e) {
+step1_form?.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    if(step1_usernameinput.value.length > 5 && step1_emailinput.value.length > 6 && validatePhoneNumber(step1_numberinput.value) == true) {
+    if (step1_usernameinput.value.length > 5 && step1_emailinput.value.length > 6 && validatePhoneNumber(step1_numberinput.value) == true) {
         step1.classList.toggle('d-none');
         step2.classList.toggle('d-none');
         stepnumber1?.classList.toggle('selected');
@@ -63,7 +91,7 @@ step1_form?.addEventListener('submit', function(e) {
             step1_emailinput.style.border = '0.06rem solid rgb(221, 57, 52)';
         }
 
-        if(validatePhoneNumber(step1_numberinput.value) == false) {
+        if (validatePhoneNumber(step1_numberinput.value) == false) {
             phone_warn.textContent = 'Please enter a valid phone number!';
             phone_warn.style.color = 'rgb(221, 57, 52)';
             phone_span.style.color = 'rgb(221, 57, 52)';
@@ -72,38 +100,49 @@ step1_form?.addEventListener('submit', function(e) {
     }
 });
 
-step2goback.addEventListener('click', function(e) {
+step2goback.addEventListener('click', function (e) {
     e.preventDefault();
 
     step1.classList.toggle('d-none');
-        step2.classList.toggle('d-none');
+    step2.classList.toggle('d-none');
 })
 
 plancardBoxs.forEach(plancards => {
-    plancards.addEventListener('click', function() {
+    plancards.addEventListener('click', function () {
         plancardBoxs.forEach(otherPlancards => {
             otherPlancards.classList.remove('card-selected');
         });
 
         plancards.classList.add('card-selected');
+        let selectedPlanChild = plancards.querySelector('.plan__card_text');
+        let selectedPlanName = selectedPlanChild?.querySelector('.plan__card_name')?.textContent;
+        
+        planName = selectedPlanName;
+        
 
         let plancardPrice = plancards.querySelector('.plan__card_price') as HTMLSpanElement;
         let plancardValue = plancardPrice.textContent;
 
-        console.log(plancardValue);
-        
+        totalPlanPrice = Number(plancardValue);
     })
 });
 
-selectplantype.addEventListener('click', function() {
+selectplantype.addEventListener('click', function () {
     if (selectplantype.style.justifyContent == 'end') {
         selectplantype.style.justifyContent = 'start';
         selectMonthly.classList.toggle('selected-plan')
         selectYearly.classList.toggle('selected-plan')
         planPrice.forEach(planPrices => {
             let planPriceValue = Number(planPrices.textContent);
-            let planPricesNew = planPriceValue/10;
+            let planPricesNew = planPriceValue / 10;
             planPrices.textContent = `${planPricesNew}`
+            monthlyText.forEach(texts => {
+                texts.textContent = 'mo'
+            });
+
+            step4_perdate.textContent = '(per monthly)';
+
+            step4_body_total.textContent = 'Monthly';
         })
     } else {
         selectplantype.style.justifyContent = 'end';
@@ -112,9 +151,108 @@ selectplantype.addEventListener('click', function() {
 
         planPrice.forEach(planPrices => {
             let planPriceValue = Number(planPrices.textContent);
-            let planPricesNew = planPriceValue*10;
+            let planPricesNew = planPriceValue * 10;
             planPrices.textContent = `${planPricesNew}`
+            step4_perdate.textContent = '(per yearly)';
+            monthlyText.forEach(texts => {
+                texts.textContent = 'yr'
+            });
+
+            step4_body_total.textContent = 'Yearly';
         })
 
     }
 })
+
+nextButton_step2?.addEventListener('click', function () {
+    const isSelected = Array.prototype.slice.call(plancardBoxs).some((plancard: Element) => plancard.classList.contains('card-selected'));
+
+    if (isSelected == true) {
+        step2.classList.toggle('d-none');
+        step3.classList.toggle('d-none');
+        stepnumber2?.classList.toggle('selected');
+        stepnumber3?.classList.toggle('selected');
+    } else {
+        nextBtn_warn.textContent = 'You have to choose any plan'
+    }
+});
+
+backButton_step2.addEventListener('click', function () {
+    stepnumber1?.classList.toggle('selected');
+    stepnumber2?.classList.toggle('selected');
+    step1?.classList.remove('d-none');
+    step2?.classList.add('d-none');
+})
+
+checkboxs.forEach(checkbox => {
+    checkbox.addEventListener('click', function () {
+        checkbox.parentElement?.parentElement?.classList.toggle('addon-selected');
+        let checkBoxParent = checkbox.parentElement?.querySelector('.addons_box_left_texts');
+        let boxParent = checkBoxParent?.parentElement?.parentElement;
+        let boxparentChildLeft = boxParent?.querySelector('.addons_box_left');
+        let boxParentLeft = boxparentChildLeft?.querySelector('.addons_box_left_texts');
+        let selectedAddonName = boxParentLeft?.querySelector('.left_texts_h5')?.textContent;
+        let boxparentChild = boxParent?.querySelector('.addons_box_right');
+        let boxparentchildPrice = Number(boxparentChild?.querySelector('.plan__card_price')?.textContent)
+        let selectedBoxPrice = boxParent?.querySelector('addons_box_right')?.querySelector('.plan__card_price')?.textContent;
+
+        let checkBoxObj = {
+            'selectedName' : selectedAddonName,
+            'selectedPrice' : boxparentchildPrice
+        }
+
+        totalPlanPrice += boxparentchildPrice
+
+        selectedPlansArray.push(checkBoxObj)
+        
+    });
+});
+
+nextButton_step3.addEventListener('click', function () {
+    stepnumber3?.classList.toggle('selected');
+    stepnumber4?.classList.toggle('selected');
+    step3?.classList.toggle('d-none');
+    step4?.classList.toggle('d-none');
+    step4_total.textContent = `+$${totalPlanPrice}`
+    selectplanName.textContent = `${planName}`
+    step4_top_price.textContent = `${totalPlanPrice}`
+    addPriceList();
+})
+
+backButton_step3.addEventListener('click', function () {
+    stepnumber2?.classList.toggle('selected');
+    stepnumber3?.classList.toggle('selected');
+    step2?.classList.remove('d-none');
+    step3?.classList.add('d-none');
+})
+
+nextButton_step4.addEventListener('click', function () {
+    step4?.classList.toggle('d-none');
+    step5?.classList.toggle('d-none');
+})
+
+backButton_step4.addEventListener('click', function () {
+    stepnumber4?.classList.toggle('selected');
+    stepnumber3?.classList.toggle('selected');
+    step3?.classList.remove('d-none');
+    step4?.classList.add('d-none');
+})
+
+function addPriceList() {
+    step4_totalbottom_top.innerHTML = '';
+
+    // Yeni içeriği ekle
+    selectedPlansArray.forEach(selects => {
+        let HTML = `<div class="bottom_top_total">
+            <span class="bottom_top_total_name">
+                ${selects.selectedName}
+            </span>
+
+            <span class="bottom_top_total_price">
+                +$${selects.selectedPrice}/<span class="monthlyText">mo</span>
+            </span>
+        </div>`;
+
+        step4_totalbottom_top.insertAdjacentHTML('beforeend', HTML);
+    });
+}

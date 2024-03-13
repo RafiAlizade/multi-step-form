@@ -277,10 +277,88 @@ main {
     margin-top: 6rem;
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .7rem;
+}
+
+.next_step2_warn {
+    text-align: center;
+    width: 100%;
+    color: red;
+}
+
+.next_step2_buttons {
+    width: 100%;
+    display: flex;
     justify-content: space-between;
     font-family: ubuntu-regular;
 
     > .next_step2-href {
+        text-decoration: none;
+        font-family: ubuntu-regular;
+        font-size: 1rem;
+        line-height: 1.13rem;
+        letter-spacing: 0rem;
+        text-align: left;
+        padding: 0.8rem 1.5rem;
+        border: none;
+    }
+
+    > button {
+        border-radius: 0.5rem;
+        background: rgb(2, 41, 89);
+        color: rgb(255, 255, 255);
+        font-family: ubuntu-regular;
+        font-size: 1rem;
+        line-height: 1.13rem;
+        letter-spacing: 0rem;
+        text-align: left;
+        padding: 0.8rem 1.5rem;
+        border: none;
+    }
+}
+
+.next_step3-btn {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-family: ubuntu-regular;
+
+    > .next_step3-href {
+        text-decoration: none;
+        font-family: ubuntu-regular;
+        font-size: 1rem;
+        line-height: 1.13rem;
+        letter-spacing: 0rem;
+        text-align: left;
+        padding: 0.8rem 1.5rem;
+        border: none;
+    }
+
+    > button {
+        border-radius: 0.5rem;
+        background: rgb(2, 41, 89);
+        color: rgb(255, 255, 255);
+        font-family: ubuntu-regular;
+        font-size: 1rem;
+        line-height: 1.13rem;
+        letter-spacing: 0rem;
+        text-align: left;
+        padding: 0.8rem 1.5rem;
+        border: none;
+    }
+}
+
+.next_step4-btn {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-family: ubuntu-regular;
+
+    > .next_step4-href {
         text-decoration: none;
         font-family: ubuntu-regular;
         font-size: 1rem;
@@ -551,6 +629,11 @@ hr {
 }
 
 .card-selected {
+    background-color: hsl(217, 100%, 97%);
+    border-color: hsl(228, 100%, 84%);
+}
+
+.addon-selected {
     background-color: hsl(217, 100%, 97%);
     border-color: hsl(228, 100%, 84%);
 }
