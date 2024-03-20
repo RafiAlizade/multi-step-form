@@ -36,7 +36,7 @@ let planPrice = document.querySelectorAll('.plan__card_price');
 let nextButton_step2 = document.querySelector('.next_btn_step2') as HTMLButtonElement;
 let backButton_step2 = document.querySelector('.step2_goback') as HTMLAnchorElement;
 let nextBtn_warn = document.querySelector('.next_step2_warn') as HTMLSpanElement;
-let selectplanName = document.querySelector('.selected_plan_name');
+let selectplanName = document.querySelector('.selected_plan_name') as HTMLSpanElement;
 
 // ! STEP 3 SELECTS
 
@@ -67,6 +67,56 @@ function validatePhoneNumber(inputValue: string): boolean {
     return regex.test(inputValue);
 }
 
+// ! JSON Server 
+
+async function fetchData() {
+    let fethced = await fetch('http://localhost:3000/userData');
+    let response = await fethced.json();
+
+    return response
+}
+
+async function addData(dataFromUser : any) {
+    let addDataUser = await fetch("http://localhost:3000/userData", {
+        method: 'POST',
+        body: JSON.stringify(dataFromUser),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          }
+    });
+};
+
+let getName: string = '';
+let getEmail: string = '';
+let getNumber: string = '';
+let getPlan: string = '';
+let getAddons: any[] = [];
+
+interface getUserData {
+    "name" : string;
+    "email": string;
+    "phonenumber": string;
+    "selectedPlan": string;
+    "addons": string[];
+  }
+
+async function getData() {
+    let getUserData = 
+        {
+            "name": `${getName}`,
+            "email": `${getEmail}`,
+            "phonenumber": `${getNumber}`,
+            "selectedPlan": `${getPlan}`,
+            "addons": getAddons
+        }
+
+        return addData(getUserData)
+}
+
+
+
+// ! Script codes
+
 
 step1_form?.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -76,6 +126,9 @@ step1_form?.addEventListener('submit', function (e) {
         step2.classList.toggle('d-none');
         stepnumber1?.classList.toggle('selected');
         stepnumber2?.classList.toggle('selected');
+        getName = step1_usernameinput.value;
+        getEmail = step1_emailinput.value;
+        getNumber = step1_numberinput.value;
     } else {
         if (step1_usernameinput.value.length < 3) {
             username_warn.textContent = 'Please enter your username!';
@@ -118,6 +171,8 @@ plancardBoxs.forEach(plancards => {
         let selectedPlanName = selectedPlanChild?.querySelector('.plan__card_name')?.textContent;
         
         planName = selectedPlanName;
+        getPlan = selectedPlanName;
+
         
 
         let plancardPrice = plancards.querySelector('.plan__card_price') as HTMLSpanElement;
@@ -184,27 +239,32 @@ backButton_step2.addEventListener('click', function () {
     step2?.classList.add('d-none');
 })
 
-checkboxs.forEach(checkbox => {
+checkboxs.forEach((checkbox: Element) => {
     checkbox.addEventListener('click', function () {
-        checkbox.parentElement?.parentElement?.classList.toggle('addon-selected');
+        const input = checkbox as HTMLInputElement; 
+        const isSelected = input.checked; 
+
         let checkBoxParent = checkbox.parentElement?.querySelector('.addons_box_left_texts');
         let boxParent = checkBoxParent?.parentElement?.parentElement;
         let boxparentChildLeft = boxParent?.querySelector('.addons_box_left');
         let boxParentLeft = boxparentChildLeft?.querySelector('.addons_box_left_texts');
         let selectedAddonName = boxParentLeft?.querySelector('.left_texts_h5')?.textContent;
         let boxparentChild = boxParent?.querySelector('.addons_box_right');
-        let boxparentchildPrice = Number(boxparentChild?.querySelector('.plan__card_price')?.textContent)
-        let selectedBoxPrice = boxParent?.querySelector('addons_box_right')?.querySelector('.plan__card_price')?.textContent;
+        let boxparentchildPrice = Number(boxparentChild?.querySelector('.plan__card_price')?.textContent);
 
         let checkBoxObj = {
-            'selectedName' : selectedAddonName,
-            'selectedPrice' : boxparentchildPrice
+            'selectedName': selectedAddonName,
+            'selectedPrice': boxparentchildPrice
+        };
+
+        if (isSelected) {
+            totalPlanPrice += boxparentchildPrice;
+            selectedPlansArray.push(checkBoxObj);
+        } else {
+            totalPlanPrice -= boxparentchildPrice;
+            selectedPlansArray = selectedPlansArray.filter(plan => plan.selectedName !== selectedAddonName);
         }
-
-        totalPlanPrice += boxparentchildPrice
-
-        selectedPlansArray.push(checkBoxObj)
-        
+            getAddons = selectedPlansArray;
     });
 });
 
@@ -229,6 +289,10 @@ backButton_step3.addEventListener('click', function () {
 nextButton_step4.addEventListener('click', function () {
     step4?.classList.toggle('d-none');
     step5?.classList.toggle('d-none');
+
+    setTimeout(() => {
+        getData();
+    }, 1700);
 })
 
 backButton_step4.addEventListener('click', function () {
@@ -255,4 +319,4 @@ function addPriceList() {
 
         step4_totalbottom_top.insertAdjacentHTML('beforeend', HTML);
     });
-}
+};

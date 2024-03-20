@@ -1,0 +1,34 @@
+{
+  "userData": [
+    {
+      "id": "46c6",
+      "name": "rafializade",
+      "email": "refielizade3@gmail.com",
+      "phonenumber": "+994552336811",
+      "selectedPlan": "Pro",
+      "addons": [
+        {
+          "selectedName": "Larger storage",
+          "selectedPrice": 2
+        },
+        {
+          "selectedName": "Online Service",
+          "selectedPrice": 1
+        }
+      ]
+    },
+    {
+      "id": "44b4",
+      "name": "rafializade",
+      "email": "refielizade3@gmail.com",
+      "phonenumber": "+994552336811",
+      "selectedPlan": "Arcade",
+      "addons": [
+        {
+          "selectedName": "Larger storage",
+          "selectedPrice": 20
+        }
+      ]
+    }
+  ]
+}
