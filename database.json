@@ -29,6 +29,23 @@
           "selectedPrice": 20
         }
       ]
+    },
+    {
+      "id": "a3fc",
+      "name": "rafializade",
+      "email": "refielizade3@gmail.com",
+      "phonenumber": "+994552336811",
+      "selectedPlan": "Advanced",
+      "addons": [
+        {
+          "selectedName": "Customizable profile",
+          "selectedPrice": 20
+        },
+        {
+          "selectedName": "Larger storage",
+          "selectedPrice": 20
+        }
+      ]
     }
   ]
 }

@@ -80,6 +80,7 @@ var step4_body_total = document.querySelector('.monthly_text_body');
 var step4_top_price = document.querySelector('.top_right_price');
 var step4_perdate = document.querySelector('.bottom_price_per_date');
 var step4_totalbottom_top = document.querySelector('.total_bottom_top');
+var step4_changeButton = document.querySelector('.total_top_change');
 var totalPlanPrice = 0;
 var planName = '';
 var selectedPlansArray = [];
@@ -211,6 +212,9 @@ selectplantype.addEventListener('click', function () {
             monthlyText.forEach(function (texts) {
                 texts.textContent = 'mo';
             });
+            plancardBoxs.forEach(function (otherPlancards) {
+                otherPlancards.classList.remove('card-selected');
+            });
             step4_perdate.textContent = '(per monthly)';
             step4_body_total.textContent = 'Monthly';
         });
@@ -219,6 +223,9 @@ selectplantype.addEventListener('click', function () {
         selectplantype.style.justifyContent = 'end';
         selectMonthly.classList.toggle('selected-plan');
         selectYearly.classList.toggle('selected-plan');
+        plancardBoxs.forEach(function (otherPlancards) {
+            otherPlancards.classList.remove('card-selected');
+        });
         planPrice.forEach(function (planPrices) {
             var planPriceValue = Number(planPrices.textContent);
             var planPricesNew = planPriceValue * 10;
@@ -304,6 +311,11 @@ backButton_step4.addEventListener('click', function () {
     stepnumber3 === null || stepnumber3 === void 0 ? void 0 : stepnumber3.classList.toggle('selected');
     step3 === null || step3 === void 0 ? void 0 : step3.classList.remove('d-none');
     step4 === null || step4 === void 0 ? void 0 : step4.classList.add('d-none');
+});
+step4_changeButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    step4 === null || step4 === void 0 ? void 0 : step4.classList.add('d-none');
+    step2 === null || step2 === void 0 ? void 0 : step2.classList.remove('d-none');
 });
 function addPriceList() {
     step4_totalbottom_top.innerHTML = '';
